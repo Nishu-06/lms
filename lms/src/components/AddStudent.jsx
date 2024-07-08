@@ -48,7 +48,7 @@ const AddStudent = () => {
                         id="username"
                         name="username"
                         onChange={(event) => {
-                            setName(event.target.value);
+                            setUsername(event.target.value);
                         }}
                     />
                 </div>
