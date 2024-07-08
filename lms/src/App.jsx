@@ -8,6 +8,7 @@ import AddStudent from './components/AddStudent';
 import { useState } from 'react';
 import EditBook from './components/EditBook';
 import axios from 'axios';
+import DeleteBook from './components/DeleteBook';
 
 function App() {
     const [role, setRole] = useState('');
@@ -29,6 +30,7 @@ function App() {
                 ></Route>
                 <Route path="/addbook" element={<AddBook />}></Route>
                 <Route path="/book/:id" element={<EditBook />}></Route>
+                <Route path="/delete/:id" element={<DeleteBook />}></Route>
             </Routes>
         </BrowserRouter>
     );
