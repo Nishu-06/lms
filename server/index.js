@@ -19,6 +19,7 @@ dotenv.config();
 app.use('/auth', AdminRouter);
 app.use('/student', StudentRouter);
 
+
 app.listen(process.env.PORT, () => {
     console.log('server is running');
 });

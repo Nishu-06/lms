@@ -20,10 +20,10 @@ const Login = ({setRoleVar}) => {
             })
             .then((res) => {
                 if (res.data.login && res.data.role === 'admin') {
-                    setRole('admin')
+                    setRoleVar('admin')
                     navigate('/dashboard');
                 } else if (res.data.login && res.data.role === 'student'){
-                    setRole("student")
+                    setRoleVar("student")
                     navigate('/')
                 }
                 console.log(res)
