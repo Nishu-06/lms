@@ -21,6 +21,8 @@ const Login = () => {
             .then((res) => {
                 if (res.data.login && res.data.role === 'admin') {
                     navigate('/dashboard');
+                } else if (res.data.login && res.data.role === 'student'){
+                    navigate('/')
                 }
                 console.log(res)
             })
