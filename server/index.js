@@ -16,7 +16,7 @@ app.use(
 );
 app.use(cookieParser());
 dotenv.config();
-app.use('/autn'.AdminRouter);
+app.use('/auth', AdminRouter);
 app.use('/student', StudentRouter);
 
 app.listen(process.env.PORT, () => {
