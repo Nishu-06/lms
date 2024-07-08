@@ -1,10 +1,17 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import { Connection } from './db';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
+import './db.js';
+import { AdminRouter } from './routes/auth.js';
 
 const app = express();
-dotenv.config()
+app.use(express.json());
+app.use(cors());
+app.use(cookieParser());
+dotenv.config();
+app.use('/autn'.AdminRouter);
 
-app.listen(process.env.PORT,()=>{
-    console.log("server is running");
-})
+app.listen(process.env.PORT, () => {
+    console.log('server is running');
+});
