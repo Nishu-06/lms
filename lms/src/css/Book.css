@@ -49,3 +49,8 @@
         background-color: #2980b9;
     }
 }
+
+.book-card .book-link {
+    text-decoration: none;
+    color: #fff;
+}

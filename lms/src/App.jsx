@@ -27,6 +27,7 @@ function App() {
                     path="/logout"
                     element={<Logout setRole={setRole} />}
                 ></Route>
+                <Route path="/addbook" element={<AddBook />}></Route>
                 <Route path="/book/:id" element={<EditBook />}></Route>
             </Routes>
         </BrowserRouter>

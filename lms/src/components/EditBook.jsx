@@ -12,15 +12,22 @@ const EditBook = () => {
             .get('http://localhost:3001/book/book/' + id)
             .then((res) => {
                 setName(res.data.name);
+                setAuthor(res.data.author);
+                setImageUrl(res.data.imageUrl);
             })
             .catch((err) => console.log(err));
-    });
+    }, []);
+
     const handleSubmit = (e) => {
         e.preventDefault();
         axios
-            .post('http://localhost:3001/book/edit', { name, author, imageUrl })
+            .put('http://localhost:3001/book/book/' + id, {
+                name,
+                author,
+                imageUrl,
+            })
             .then((res) => {
-                if (res.data.added) {
+                if (res.data.updated) {
                     navigate('/books');
                 } else console.log(res);
             })
@@ -36,6 +43,7 @@ const EditBook = () => {
                         type="text"
                         id="book"
                         name="book"
+                        value={name}
                         onChange={(e) => setName(e.target.value)}
                     />
                 </div>
@@ -45,6 +53,7 @@ const EditBook = () => {
                         type="text"
                         id="author"
                         name="author"
+                        value={author}
                         onChange={(e) => setAuthor(e.target.value)}
                     />
                 </div>
@@ -54,10 +63,11 @@ const EditBook = () => {
                         type="text"
                         id="image"
                         name="image"
+                        value={imageUrl}
                         onChange={(e) => setImageUrl(e.target.value)}
                     />
                 </div>
-                <button type="submit">Edit </button>
+                <button type="submit">UPDATE</button>
             </form>
         </div>
     );
