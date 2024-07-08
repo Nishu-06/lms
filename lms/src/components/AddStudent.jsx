@@ -22,7 +22,7 @@ const AddStudent = () => {
                 if (res.data.registered) {
                     navigate('./dashboard');
                 }
-                console.log(res)
+                console.log(res);
             })
             .catch((err) => console.log(err));
     };

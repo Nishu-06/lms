@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const BookCard = ({ books }) => {
+const BookCard = ({ book, role }) => {
     const { name, author, imageUrl } = book;
     return (
         <div className="book-card">
@@ -10,18 +10,20 @@ const BookCard = ({ books }) => {
                 <h3>{name}</h3>
                 <p>{author}</p>
             </div>
-            <div className="book-actions">
-                <button>
-                    <Link to={`/book/${book._id}`} className="btn-link">
-                        EDIT
-                    </Link>
-                </button>
-                <button>
-                    <Link to={`/delete/${book._id}`} className="btn-link">
-                        DELETE
-                    </Link>
-                </button>
-            </div>
+            {role === 'admin' && (
+                <div className="book-actions">
+                    <button>
+                        <Link to={`/book/${book._id}`} className="btn-link">
+                            EDIT
+                        </Link>
+                    </button>
+                    <button>
+                        <Link to={`/delete/${book._id}`} className="btn-link">
+                            DELETE
+                        </Link>
+                    </button>
+                </div>
+            )}
         </div>
     );
 };
